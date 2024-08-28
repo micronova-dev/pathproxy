@@ -152,7 +152,7 @@ type T = {
 | _a_m_b | number \| null |
 | _a_m_c | string \| __null__ |
 
-When necessary, __Pathable</T\>__ explicitly adds all inherited nullability to T; e.g., for the following type:
+When necessary, __Pathable\<T\>__ explicitly adds all inherited nullability to T; e.g., for the following type:
 ```
 type T = {
   a: {
@@ -194,7 +194,7 @@ Paths can be defined as "__leaves__" by specifying matching substrings (__leafKe
 ```
 Path<T, PathConfig<{ LEAFKEY: "next" | "prev" }>>
 ```
-defines all paths matching "next" or "prev" substring  as__leaves__, so this becomes:
+defines all paths matching "next" or "prev" substring  as __leaves__, so this becomes:
 ```
 "_next" | "_prev"
 ```
@@ -369,7 +369,7 @@ When a __PathConfig__ C needs to be speficied, `get<T, C>(t: T)` or `set<T, C>(t
 
 ## PathProxy
 
-__Paths__ can be used as javascript object keys, so it is possible to use __paths__ as keys of a javascript proxy (__PathProxy__\<T\>) to enable __path__-based get/set access such as `proxy._a_b_c = proxy._x_y + 3`.  Since __PathGetType__ and __PathSetType__ can be different (by nullablity/readonly) and javascript proxy does not distinguish "get" properties from "set" properties, __PathProxy__ treats all "anomalous" paths (with different __PathGetType__ and __PathSetType__) to be "readonly".  For example:
+__Paths__ can be used as javascript object keys, so it is possible to use __paths__ as keys of a javascript proxy (__PathProxy\<T\>__) to enable __path__-based get/set access such as `proxy._a_b_c = proxy._x_y + 3`.  Since __PathGetType__ and __PathSetType__ can be different (by nullablity/readonly) and javascript proxy does not distinguish "get" properties from "set" properties, __PathProxy__ treats all "anomalous" paths (with different __PathGetType__ and __PathSetType__) to be "readonly".  For example:
 ```
 PathProxy<{
   a: {
