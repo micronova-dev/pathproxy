@@ -2,7 +2,7 @@
   "name": "pathproxy",
   "version": "1.0.0",
   "description": "typescript type-safe nested object property path proxy",
-  "main": "./index.ts",
+  "main": "./index.js",
   "scripts": {
     "test": "npx jest"
   },
